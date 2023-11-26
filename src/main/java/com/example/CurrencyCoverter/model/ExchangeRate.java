@@ -10,14 +10,14 @@ import java.util.List;
 import java.util.Map;
 
 @AllArgsConstructor
-
+@NoArgsConstructor
 @Getter
 @Setter
 @Data
 public class ExchangeRate {
 
-    static String shortName;
-    static HashMap<String,Double> exchangeValues =new HashMap<>();
+    private String shortName;
+    private HashMap<String,Double> exchangeValues =new HashMap<>();
 
     public ExchangeRate( String shortName) {
 
@@ -33,41 +33,41 @@ public class ExchangeRate {
         this.exchangeValues = exchangeValues;
     }
 
-    public static  void defaultValues(String fromCurrency) {
+    public   void defaultValues(String fromCurrency) {
         String currency = fromCurrency;
 
         switch(currency) {
             case "USD":
-                exchangeValues.put("USD", 1.00);
-                exchangeValues.put("EUR", 0.93);
-                exchangeValues.put("GBP", 0.66);
-                exchangeValues.put("CHF", 1.01);
+                this.exchangeValues.put("USD", 1.00);
+                this.exchangeValues.put("EUR", 0.93);
+                this.exchangeValues.put("GBP", 0.66);
+                this.exchangeValues.put("CHF", 1.01);
                 break;
             case "EUR":
-                exchangeValues.put("USD", 1.073);
-                exchangeValues.put("EUR", 1.00);
-                exchangeValues.put("GBP", 0.71);
-                exchangeValues.put("CHF", 1.08);
+                this.exchangeValues.put("USD", 1.073);
+                this.exchangeValues.put("EUR", 1.00);
+                this.exchangeValues.put("GBP", 0.71);
+                this.exchangeValues.put("CHF", 1.08);
                 break;
             case "GBP":
-                exchangeValues.put("USD", 1.51);
-                exchangeValues.put("EUR", 1.41);
-                exchangeValues.put("GBP", 1.00);
-                exchangeValues.put("CHF", 1.52);
+                this.exchangeValues.put("USD", 1.51);
+                this.exchangeValues.put("EUR", 1.41);
+                this.exchangeValues.put("GBP", 1.00);
+                this.exchangeValues.put("CHF", 1.52);
                 break;
             case "CHF":
-                exchangeValues.put("USD", 0.99);
-                exchangeValues.put("EUR", 0.93);
-                exchangeValues.put("GBP", 0.66);
-                exchangeValues.put("CHF", 1.00);
+                this.exchangeValues.put("USD", 0.99);
+                this.exchangeValues.put("EUR", 0.93);
+                this.exchangeValues.put("GBP", 0.66);
+                this.exchangeValues.put("CHF", 1.00);
                 break;
 
 
         }
     }
-    public static Map<String,Double> init(String fromCurrency)
+    public  Map<String,Double> init(String fromCurrency)
     {
-         defaultValues(fromCurrency);
+         this.defaultValues(fromCurrency);
         return exchangeValues;
     }
 }

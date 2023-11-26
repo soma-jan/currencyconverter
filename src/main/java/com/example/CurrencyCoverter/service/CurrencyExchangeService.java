@@ -18,7 +18,7 @@ public class CurrencyExchangeService {
     {
 
         Double toAmount =null;
-        Map<String,Double> exchangeValueMap =ExchangeRate.init(fromCur);
+        Map<String,Double> exchangeValueMap =exchangerate.init(fromCur);
         toAmount =Math.round(fromAmount * exchangeValueMap.get(toCur))*100d/100d;
         return new ExchangeRateDto(fromCur,toCur,fromAmount,toAmount);
 
